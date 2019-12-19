@@ -1,0 +1,24 @@
+{
+  "name": "reservations",
+  "version": "1.0.0",
+  "description": "##",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed:pg": "node ./database/PostgreSQL/pg.js",
+    "seed:mongo": "node ./database/MongoDB/mongodb.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MEND-SF/reservations.git"
+  },
+  "author": "fish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MEND-SF/reservations/issues"
+  },
+  "homepage": "https://github.com/MEND-SF/reservations#readme",
+  "dependencies": {
+    "pg": "^7.15.0"
+  }
+}
