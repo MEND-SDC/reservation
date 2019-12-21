@@ -13,6 +13,7 @@ CREATE TABLE mend.rooms(
     min_nights INTEGER,
     max_nights INTEGER,
     rating_average INTEGER,
+    review_count INTEGER,
     country VARCHAR(2)
 );
 

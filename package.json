@@ -1,24 +1,30 @@
 {
   "name": "reservations",
   "version": "1.0.0",
-  "description": "##",
+  "description": "## CRUD API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed:pg": "node ./database/PostgreSQL/pg.js",
-    "seed:mongo": "node ./database/MongoDB/mongodb.js"
+    "seed:mongo": "node ./database/MongoDB/mongodb.js",
+    "seed:pg": "node ./database/PostgreSQL/pg.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MEND-SF/reservations.git"
   },
-  "author": "fish",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/MEND-SF/reservations/issues"
   },
   "homepage": "https://github.com/MEND-SF/reservations#readme",
   "dependencies": {
-    "pg": "^7.15.0"
+    "bluebird": "^3.7.2",
+    "moment": "^2.24.0",
+    "mongodb": "^3.4.1",
+    "pg": "^7.15.1"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0"
   }
 }
