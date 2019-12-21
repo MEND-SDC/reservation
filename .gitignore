@@ -4,3 +4,6 @@
 # Config files
 mongodb.config.js
 pg.config.js
+
+# Seeding files
+seedFiles/
