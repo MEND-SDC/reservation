@@ -1,8 +1,23 @@
-DROP SCHEMA IF EXISTS mend CASCADE;
-CREATE SCHEMA mend;
+-- DROP SCHEMA IF EXISTS mend CASCADE;
+-- CREATE SCHEMA mend;
 
-CREATE TABLE mend.rooms(
+DROP DATABASE IF EXISTS reservations;
+CREATE DATABASE reservations;
+
+\c reservations;
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users(
     id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    birthday DATE
+);
+
+DROP TABLE IF EXISTS listings;
+CREATE TABLE listings(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
     price_base MONEY,
     price_weekend MONEY,
     price_holiday MONEY,
@@ -17,16 +32,10 @@ CREATE TABLE mend.rooms(
     country VARCHAR(2)
 );
 
-CREATE TABLE mend.users(
+DROP TABLE IF EXISTS reservations;
+CREATE TABLE reservations(
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255),
-    email VARCHAR(255),
-    birthday DATE
-);
-
-CREATE TABLE mend.reservations(
-    id SERIAL PRIMARY KEY,
-    room_id INTEGER REFERENCES rooms(id),
+    listing_id INTEGER REFERENCES listings(id),
     user_id INTEGER REFERENCES users(id),
     start_date DATE,
     end_date DATE,
@@ -36,10 +45,10 @@ CREATE TABLE mend.reservations(
     total_payment MONEY
 );
 
-CREATE TABLE mend.reviews(
-  id SERIAL PRIMARY KEY,
-  room_id INTEGER REFERENCES rooms(id),
-  user_id INTEGER REFERENCES users(id),
-  rating INTEGER,
-  comment TEXT
-);
+-- CREATE TABLE mend.reviews(
+--   id SERIAL PRIMARY KEY,
+--   listing_id INTEGER REFERENCES rooms(id),
+--   user_id INTEGER REFERENCES users(id),
+--   rating INTEGER,
+--   comment TEXT
+-- );

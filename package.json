@@ -4,11 +4,10 @@
   "description": "## CRUD API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "seed:json": "node ./database/MongoDB/generateData.js",
     "seed:mongo": "node ./database/MongoDB/importData.js",
     "seed:csv": "node ./database/PostgreSQL/generateData.js",
-    "seed:pg": "node ./database/PostgreSQL/pg.js"
+    "seed:pg": "node ./database/PostgreSQL/seed.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
     "pg": "^7.15.1"
   },
   "devDependencies": {
+    "cli-progress": "^3.4.0",
     "csv-parser": "^2.3.2",
     "faker": "^4.1.0",
     "fs": "0.0.1-security"

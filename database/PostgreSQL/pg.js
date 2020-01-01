@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+const { Pool, Client } = require('pg');
 const options = require('./pg.config.js');
 
 const pool = new Pool({
@@ -16,4 +16,4 @@ pool.connect((err, client, release) => {
 
 
   pool.end();
-})
+});
