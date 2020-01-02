@@ -25,8 +25,8 @@ const generateData = () => {
     reservations: {
       // totalSize: 100000000,
       // totalSize: 1000,
-      // batchCount: 100
-      batchCount: 10
+      batchCount: 100
+      // batchCount: 10
     }
   };
 
@@ -82,7 +82,7 @@ const generateData = () => {
           var batch = reservationsList.next().value;
           return fsp.writeFileAsync(`${seedFolderPath}/reservations/${index}.csv`, batch);
         }).then(() => {
-          reservationsBar.increment(10);
+          reservationsBar.increment(1);
         }).catch((err) => {
           console.error(err);
         });
