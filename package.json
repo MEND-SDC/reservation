@@ -23,6 +23,7 @@
     "bluebird": "^3.7.2",
     "moment": "^2.24.0",
     "mongodb": "^3.4.1",
+    "newrelic": "^6.2.0",
     "pg": "^7.15.1"
   },
   "devDependencies": {
