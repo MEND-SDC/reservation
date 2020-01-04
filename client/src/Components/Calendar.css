@@ -1,0 +1,32 @@
+.reserved {
+    text-decoration: line-through;
+    border: 1px solid #e4e4e4;
+    cursor: not-allowed;
+    color: #d8d8d8;
+}
+
+.calendar-container {
+    position: absolute;
+    margin-top: 150px;
+    margin-right: 100px;
+    background-color: white;
+    border: 1px solid #e4e4e4;
+}
+
+.calendar {
+    padding: 1em;
+}
+
+.day {
+    border: 1px solid #e4e4e4;
+}
+
+.selected {
+    background-color: teal;
+}
+
+.something {
+    max-width: 500px;
+  margin: auto;
+}
+

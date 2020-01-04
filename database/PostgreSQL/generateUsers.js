@@ -13,8 +13,8 @@ const generateUser = (user_id) => {
   //   faker.date.between('1920-01-01', '2000-12-31')
   // ];
 
-  return `${user_id},${faker.name.findName()},${faker.internet.email()},${moment(faker.date.between('1920-01-01', '2000-12-31')).format("YYYY-MM-DD")}\n`;
-  // return `${faker.name.findName()},${faker.internet.email()},${moment(faker.date.between('1920-01-01', '2000-12-31')).format("YYYY-MM-DD")}\n`;
+  // return `${user_id},${faker.name.findName()},${faker.internet.email()},${moment(faker.date.between('1920-01-01', '2000-12-31')).format("YYYY-MM-DD")}\n`;
+  return `${faker.name.findName()},${faker.internet.email()},${moment(faker.date.between('1920-01-01', '2000-12-31')).format("YYYY-MM-DD")}\n`;
 }
 
 const generateUsers = function* (batchCount, totalSize) {
