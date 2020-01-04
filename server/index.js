@@ -32,6 +32,7 @@ app.use('/', express.static(path.join(__dirname, '../client/dist')));
 app.use('/:listingId', express.static(path.join(__dirname, '../client/dist')));
 
 app.get('/api/reservations/:listingId', (req, res) => {
+  // console.log(req);
   // controllers.get(req, res);
   models.getFromModel(req, res);
 });
