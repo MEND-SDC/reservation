@@ -9,11 +9,4 @@ const pool = new Pool({
   database: options.database,
 });
 
-pool.connect((err, client, release) => {
-  if (err) {
-    console.error(err);
-  }
-
-
-  pool.end();
-});
+module.exports = pool;

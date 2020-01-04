@@ -6,5 +6,11 @@ mongodb.config.js
 pg.config.js
 newrelic.js
 
+#Log files
+newrelic_agent.log
+
 # Seeding files
 seedFiles/
+
+# Compiled Files
+client/dist/

@@ -1,0 +1,25 @@
+config:
+  target: 'http://localhost:3002'
+  http:
+    pool: 10
+  phases:
+    - duration: 30
+      arrivalRate: 50
+  processor: "./artillery-functions.js"
+scenarios:
+  - name: "Users loading pages"
+    flow:
+      - function: "generateRandomListingId"
+      - get:
+          url: "/{{ listingId }}"
+
+      # - loop:
+      #   - function: "generateRandomListingId"
+      #   - get:
+      #       url: "/{{ listingId }}"
+      #       count: 20
+
+      # - function: "generateRandomListingId"
+      # - get:
+      #     url: "/{{ listingId }}"
+      # - log: "Sent a GET request to /:{{ listingId }}"
