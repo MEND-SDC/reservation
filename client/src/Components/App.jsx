@@ -79,12 +79,12 @@ class App extends React.Component {
         let url = '';
         if (endpoint.length === 1) {
             // url = 'http://3.135.103.1/houses/1';
-            url = 'http://localhost:3002/1';
+            url = `http://localhost:3002/api/reservations/1`;
         } else {
             const arr = endpoint.split('/');
             const id = arr[arr.length - 2];
             // url = `http://3.135.103.1/houses/${id}`;
-            url = 'http://localhost:3002/${id}';
+            url = `http://localhost:3002/api/reservations/${id}`;
         }
         let arrayUrl = url.split('/');
         var id = Number(arrayUrl[arrayUrl.length - 1])
@@ -92,7 +92,9 @@ class App extends React.Component {
             type: "GET",
             url: url,
             success: (data) => {
-                console.log(data);
+                console.log('data:');
+                console.log(data.listing);
+                console.log(data.reservations);
                 this.setState({
                     pricePerNight: data[0].price_per_night,
                     cleaningFees: data[0].cleaning_fees,
@@ -102,8 +104,8 @@ class App extends React.Component {
                     id: id,
                 })
             },
-            error: (message) => {
-                console.log(message);
+            error: (err) => {
+                console.error(err);
             }
         })
     }
@@ -130,7 +132,7 @@ class App extends React.Component {
 
     render() {
         const { pricePerNight, average_rating, number_of_reviews, dayStart, dayEnd, year, month, isClicked,
-            id, adults, children, infants, guestsClicked, cleaningFees, serviceFees } = this.state
+            id, adults, children, infants, guestsClicked, cleaningFees, serviceFees } = this.state;
         return (
             <Wrapper>
                 <Price pricePerNight={pricePerNight}

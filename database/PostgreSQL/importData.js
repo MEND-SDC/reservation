@@ -39,7 +39,7 @@ const importData = () => {
       usersBar.start(10, 0);
       usersArray.reduce((accumulator, item, index) => {
         return accumulator.then(() => {
-          const query = `COPY users(id, name, email, birthday)
+          const query = `COPY users(name, email, birthday)
                          FROM '${seedFilesPath}/users/${index}.csv' DELIMITERS ',' CSV;`;
           return client.query(query);
         }).then(() => {
@@ -55,7 +55,7 @@ const importData = () => {
           listingsBar.start(10, 0);
           listingsArray.reduce((accumulator, item, index) => {
             return accumulator.then(() => {
-              const query = `COPY listings(id, name, price_base, price_weekend, price_holiday, price_guest, price_cleaning, price_service, max_guests, min_nights, max_nights, rating_average, review_count, country)
+              const query = `COPY listings(name, price_base, price_weekend, price_holiday, price_guest, price_cleaning, price_service, max_guests, min_nights, max_nights, rating_average, review_count, country)
                              FROM '${seedFilesPath}/listings/${index}.csv' DELIMITERS ',' CSV;`;
               return client.query(query);
             }).then(() => {

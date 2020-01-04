@@ -28,12 +28,10 @@ function shouldCompress(req, res) {
 
 app.use(compression({ filter: shouldCompress }));
 
-// app.use('/', express.static(path.join(__dirname, '../dist')));
-// app.use('/:id', express.static(path.join(__dirname, '../dist')));
-
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
+app.use('/:listingId', express.static(path.join(__dirname, '../client/dist')));
 
-app.get('/:listingId', (req, res) => {
+app.get('/api/reservations/:listingId', (req, res) => {
   // controllers.get(req, res);
   models.getFromModel(req, res);
 });

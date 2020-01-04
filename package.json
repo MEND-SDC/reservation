@@ -9,7 +9,9 @@
     "seed:csv": "node ./database/PostgreSQL/generateData.js",
     "seed:pg": "node ./database/PostgreSQL/seed.js",
     "server": "node ./server/index.js",
-    "dev:server": "nodemon ./server/index.js"
+    "dev:server": "nodemon ./server/index.js",
+    "build": "webpack -p",
+    "dev:build": "webpack -d -w"
   },
   "repository": {
     "type": "git",
@@ -27,16 +29,42 @@
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "moment": "^2.24.0",
     "mongodb": "^3.4.1",
     "newrelic": "^6.2.0",
-    "pg": "^7.15.1"
+    "pg": "^7.15.1",
+    "ajax": "0.0.4",
+    "atom": "^1.1.0",
+    "css-loader": "^3.2.0",
+    "font-awesome": "^4.7.0",
+    "gulp-run": "^1.7.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
+    "react": "^16.12.0",
+    "react-calendar": "^2.19.2",
+    "react-dom": "^16.12.0",
+    "react-moment": "^0.9.6",
+    "react-simple-popover": "^0.2.4",
+    "reactstrap": "^8.2.0",
+    "style-loader": "^1.0.1",
+    "styled-components": "^4.4.1",
+    "tom": "^0.4.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "@material-ui/core": "^4.7.1",
+    "babel-loader": "^8.0.6",
     "cli-progress": "^3.4.0",
+    "compression-webpack-plugin": "^3.0.1",
     "csv-parser": "^2.3.2",
     "faker": "^4.1.0",
     "fs": "0.0.1-security",
-    "nodemon": "^2.0.2"
+    "gulp": "^4.0.2",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
