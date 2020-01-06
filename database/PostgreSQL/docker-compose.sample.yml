@@ -1,0 +1,14 @@
+version: 3.3
+
+services:
+  db:
+    images: postgres:12.1
+    restart: always
+    environment:
+      POSTGRES_USER: #USERNAME#
+      POSTGRES_PASSWORD: #PASSWORD#
+      POSTGRES_DB: 'reservations'
+    ports:
+      - '5432:5432'
+    volumes:
+      - /home/ubuntu/postgres:/var/lib/postgresql/data

@@ -1,3 +1,7 @@
+const assert = require('assert');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
+
 const { Pool, Client } = require('pg');
 const path = require('path');
 const cliProgress = require('cli-progress');
@@ -5,6 +9,7 @@ const cliProgress = require('cli-progress');
 const options = require('./pg.config.js');
 // const seedFilesPath = path.resolve(__dirname, "./seedFiles");
 const seedFilesPath = `D:/HRSF124/SDC/reservations/database/PostgreSQL/seedFiles`;
+const s3SeedPath = `https://mend-sf.s3-us-west-1.amazonaws.com/csv`;
 
 
 const pool = new Pool({
@@ -39,9 +44,13 @@ const importData = () => {
       usersBar.start(10, 0);
       usersArray.reduce((accumulator, item, index) => {
         return accumulator.then(() => {
+          // COPY sample_table FROM PROGRAM 'curl "http://www.example.com/file.csv" DELIMITERS ',' CSV;'
           const query = `COPY users(name, email, birthday)
                          FROM '${seedFilesPath}/users/${index}.csv' DELIMITERS ',' CSV;`;
+          // const query = `COPY users(name, email, birthday)
+          //                FROM PROGRAM 'curl "${s3SeedPath}/users/${index}.csv"' DELIMITERS ',' CSV;`
           return client.query(query);
+          // return exec(`\copy users(name, email, birthday) FROM '${seedFilesPath}/users/${index}.csv' DELIMITERS ',' CSV;`);
         }).then(() => {
           usersBar.increment(1);
         }).catch((err) => {
@@ -57,7 +66,10 @@ const importData = () => {
             return accumulator.then(() => {
               const query = `COPY listings(name, price_base, price_weekend, price_holiday, price_guest, price_cleaning, price_service, max_guests, min_nights, max_nights, rating_average, review_count, country)
                              FROM '${seedFilesPath}/listings/${index}.csv' DELIMITERS ',' CSV;`;
+              // const query = `COPY listings(name, price_base, price_weekend, price_holiday, price_guest, price_cleaning, price_service, max_guests, min_nights, max_nights, rating_average, review_count, country)
+              //                FROM PROGRAM 'curl "${s3SeedPath}/listings/${index}.csv"' DELIMITERS ',' CSV;`;
               return client.query(query);
+              // return exec(`\copy listings(name, price_base, price_weekend, price_holiday, price_guest, price_cleaning, price_service, max_guests, min_nights, max_nights, rating_average, review_count, country) FROM '${seedFilesPath}/listings/${index}.csv' DELIMITERS ',' CSV;`);
             }).then(() => {
               listingsBar.increment(1);
             }).catch((err) => {
@@ -72,7 +84,10 @@ const importData = () => {
               return accumulator.then(() => {
                 const query = `COPY reservations(listing_id, user_id, start_date, end_date, adult_count, child_count, infant_count, total_payment)
                                FROM '${seedFilesPath}/reservations/${index}.csv' DELIMITERS ',' CSV;`;
+                // const query = `COPY reservations(listing_id, user_id, start_date, end_date, adult_count, child_count, infant_count, total_payment)
+                //                FROM PROGRAM 'curl "${s3SeedPath}/reservations/${index}.csv"' DELIMITERS ',' CSV;`;
                 return client.query(query);
+                // return exec(`\copy reservations(listing_id, user_id, start_date, end_date, adult_count, child_count, infant_count, total_payment) FROM '${seedFilesPath}/reservations/${index}.csv' DELIMITERS ',' CSV;`);
               }).then(() => {
                 reservationsBar.increment(1);
               }).catch((err) => {
