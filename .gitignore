@@ -14,4 +14,5 @@ newrelic_agent.log
 seedFiles/
 
 # Compiled Files
-client/dist/
+client/dist/bundle.js
+client/dist/bundle.js.gz
