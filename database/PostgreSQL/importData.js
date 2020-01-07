@@ -8,6 +8,7 @@ const cliProgress = require('cli-progress');
 
 const options = require('./pg.config.js');
 // const seedFilesPath = path.resolve(__dirname, "./seedFiles");
+// const seedFilesPath = `C:/Users/digitalized/Roaming/seedFiles`;
 const seedFilesPath = `D:/HRSF124/SDC/reservations/database/PostgreSQL/seedFiles`;
 const s3SeedPath = `https://mend-sf.s3-us-west-1.amazonaws.com/csv`;
 

@@ -8,6 +8,8 @@ import Guests from './Guests.jsx';
 import GuestsAdd from './GuestsAdd.jsx';
 import TotalPrice from './TotalPrice.jsx';
 
+const server_url = `http://54.67.26.178/api/reservations`;
+
 class App extends React.Component {
     constructor(props) {
         super(props)
@@ -79,12 +81,12 @@ class App extends React.Component {
         let url = '';
         if (endpoint.length === 1) {
             // url = 'http://3.135.103.1/houses/1';
-            url = `http://localhost:3002/api/reservations/1`;
+            url = `${server_url}/1`;
         } else {
             const arr = endpoint.split('/');
             const id = arr[arr.length - 2];
             // url = `http://3.135.103.1/houses/${id}`;
-            url = `http://localhost:3002/api/reservations/${id}`;
+            url = `${server_url}/${id}`;
         }
         let arrayUrl = url.split('/');
         var id = Number(arrayUrl[arrayUrl.length - 1])

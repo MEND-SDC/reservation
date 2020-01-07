@@ -1,8 +1,9 @@
-version: 3.3
+version: '3.3'
 
 services:
-  db:
-    images: elchangtw/reservations
+  server:
+    build: .
+    image: 'elchangtw/reservations'
     restart: always
     ports:
       - '80:3002'
