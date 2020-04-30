@@ -37,7 +37,7 @@
     "css-loader": "^3.2.0",
     "font-awesome": "^4.7.0",
     "gulp-run": "^1.7.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.27",
     "react": "^16.12.0",
